@@ -63,3 +63,7 @@
 ;; Do not e-max-global-set-key TAB because this would override local
 ;; bindings such as in magit.
 (global-set-key (kbd "TAB") 'e-max-smart-tab)
+
+;; Autopair
+(e-max-vendor 'autopair)
+(autopair-global-mode)

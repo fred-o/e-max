@@ -23,12 +23,6 @@
         js-auto-indent-flag nil))
 (add-hook 'js-mode-hook 'e-max-javascript-configure-indenting)
 
-
-(defun e-max-javascript-set-pairs ()
-  (e-max--set-pairs '("(" "{" "[" "\"" "'")))
-(add-hook 'js-mode-hook 'e-max-javascript-set-pairs)
-
-
 (defun e-max-javascript-fix-fontlock ()
   (font-lock-add-keywords
    'js-mode

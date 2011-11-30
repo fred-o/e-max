@@ -22,7 +22,6 @@
                (find-file (first org-agenda-files))))
 
 (defun e-max-org-mode-hook ()
-  (e-max--set-pairs '("(" "{" "[" "\""))
   (auto-fill-mode 1))
 
 (defun org-summary-todo (n-done n-not-done)

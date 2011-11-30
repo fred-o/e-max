@@ -76,7 +76,6 @@
   (load (concat e-max-bundle-dir "ruby/flymake")))
 
 (defun e-max-ruby-mode-hook ()
-  (e-max--set-pairs '("(" "{" "[" "\"" "\'" "|"))
 
   (when (and buffer-file-name (string-match "_spec.rb$" buffer-file-name))
     (setq e-max-testing-execute-function 'rspec-run-single-file))

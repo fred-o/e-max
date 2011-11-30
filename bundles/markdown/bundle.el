@@ -9,7 +9,6 @@
 (add-to-list 'auto-mode-alist '("\\.text$" . markdown-mode))
 
 (defun e-max-markdown-mode-hook ()
-  (e-max--set-pairs '("(" "{" "[" "\""))
   (auto-fill-mode 1))
 
 (add-hook 'markdown-mode-hook 'e-max-markdown-mode-hook)

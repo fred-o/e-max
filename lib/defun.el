@@ -1,10 +1,3 @@
-(defun e-max--set-pairs (pairs)
-  "Sets up handling of pair characters."
-  (when (e-max-insert-pairs-p)
-    (mapcar (lambda (pair)
-              (local-set-key pair 'skeleton-pair-insert-maybe))
-            pairs)
-    (setq skeleton-pair t)))
 
 (defun e-max--find-parent-with-file (path filename)
   "Traverse PATH upwards until we find FILENAME in the dir.

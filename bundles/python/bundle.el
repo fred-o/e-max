@@ -22,11 +22,6 @@
 
 ;; hooks
 
-(defun e-max-python-set-pairs ()
-  (e-max--set-pairs '("(" "{" "[" "\"" "\'" "`")))
-
-(add-hook 'python-mode-hook 'e-max-python-set-pairs)
-
 
 (defun e-max-python--default-config ()
   (set (make-local-variable 'tab-width) 4))
