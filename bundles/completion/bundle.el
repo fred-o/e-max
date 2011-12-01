@@ -38,7 +38,9 @@ function in the chosen completion framework."
      (setq ac-ignore-case nil)
      (setq ac-delay 0.5)
      ;; enable auto-complete for additional modes
-     (setq ac-modes (append ac-modes '(conf-unix-mode haml-mode))))
+     (setq ac-modes (append ac-modes '(conf-unix-mode haml-mode)))
+     ;; Work around bug with auto-complete-mode
+     (add-to-list 'ac-trigger-commands 'autopair-newline))
     ('company-mode
      ;; company-mode init
      (e-max-vendor 'company)
