@@ -103,3 +103,6 @@
     (yas/reload-all)))
 
 (add-hook 'python-mode-hook 'e-max-python-init-snippets)
+
+(add-hook 'python-mode-hook 'e-max-autopair-pipe)
+(add-hook 'python-mode-hook 'e-max-autopair-triplequote)

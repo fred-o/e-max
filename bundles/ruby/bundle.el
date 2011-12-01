@@ -88,3 +88,4 @@
       (add-to-list 'ac-ignores "end"))))
 
 (add-hook 'ruby-mode-hook 'e-max-ruby-mode-hook)
+(add-hook 'ruby-mode-hook 'e-max-autopair-pipe)

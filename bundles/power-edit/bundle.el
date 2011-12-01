@@ -67,3 +67,21 @@
 ;; Autopair
 (e-max-vendor 'autopair)
 (autopair-global-mode)
+
+
+(defun e-max-autopair-gt-lt ()
+  "Enables autopairing of < and >."
+  (if (boundp 'autopair-extra-pairs) (push '(?< . ?>) (getf autopair-extra-pairs :code))))
+
+(defun e-max-autopair-pipe ()
+  "Enables autopairing of the | character."
+  (if (boundp 'autopair-extra-pairs) (modify-syntax-entry ?| "\"")))
+
+(defun e-max-autopair-triplequote()
+  "Enables autoparing of '''"
+  (if (boundp 'autopair-extra-pairs)
+      (setq autopair-handle-action-fns
+            (list #'autopair-default-handle-action
+                  #'autopair-python-triple-quote-action))))
+
+

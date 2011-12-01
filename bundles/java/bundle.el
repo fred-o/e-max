@@ -39,3 +39,5 @@
                       (yas/load-directory dir)))))))
 
 (e-max-java-init)
+
+(add-hook 'java-mode-hook 'e-max-autopair-gt-lt)
