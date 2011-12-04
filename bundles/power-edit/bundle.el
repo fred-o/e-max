@@ -77,6 +77,10 @@
   "Enables autopairing of the | character."
   (if (boundp 'autopair-extra-pairs) (modify-syntax-entry ?| "\"")))
 
+(defun e-max-autopair-backtick ()
+  "Enables autopairing of the | character."
+  (if (boundp 'autopair-extra-pairs) (modify-syntax-entry ?` "\"")))
+
 (defun e-max-autopair-triplequote()
   "Enables autoparing of '''"
   (if (boundp 'autopair-extra-pairs)

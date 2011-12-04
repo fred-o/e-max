@@ -106,3 +106,4 @@
 
 (add-hook 'python-mode-hook 'e-max-autopair-pipe)
 (add-hook 'python-mode-hook 'e-max-autopair-triplequote)
+(add-hook 'python-mode-hook 'e-max-autopair-backtick)
