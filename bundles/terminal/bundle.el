@@ -152,3 +152,7 @@ case when it is at the last line."
   ;; term-mode send "\C-?" as backspace by default,
   ;; but it seems to not work properly in vim, so we fix it.
   (term-send-raw-string "\C-H"))
+
+;; Disable autopair
+(add-hook 'term-mode-hook
+          (lambda () (setq autopair-dont-activate t)))
