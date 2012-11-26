@@ -26,7 +26,7 @@
 
 
 ;;; Commentary:
-;; 
+;;
 ;; This library tries to indent java annotations
 ;; (http://java.sun.com/j2se/1.5.0/docs/guide/language/annotations.html)
 ;; like the code examples listed in the webpage.
@@ -69,6 +69,7 @@ This function should be called from a java or jde mode hook,
 after any calls to `c-set-style'."
   (c-preprend-offset 'arglist-intro 'c-single-indent-after-java-annotations)
   (c-preprend-offset 'topmost-intro-cont 'c-no-indent-after-java-annotations)
+  (c-preprend-offset 'annotation-var-cont 'c-no-indent-after-java-annotations)
   (c-preprend-offset 'arglist-close 'c-no-indent-after-java-annotations)
   (c-preprend-offset 'statement-cont 'c-no-indent-after-java-annotations)
   (c-preprend-offset 'func-decl-cont 'c-no-indent-after-java-annotations))
