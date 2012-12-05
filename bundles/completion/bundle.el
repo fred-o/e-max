@@ -13,6 +13,11 @@
                  (const :tag "Ctrl+Space" 1)
                  (const :tag "Alt-/" 2)))
 
+(defcustom cabbage-java-use-eclim t
+  "Use eclim for managing java files."
+  :type 'boolean
+  :group 'cabbage)
+
 (defun cabbage-complete ()
   (interactive)
   "Common completion function that calls the corresponding
@@ -50,7 +55,37 @@ function in the chosen completion framework."
      (global-company-mode)))
   (case cabbage-completion-trigger
     (1 (global-set-key (kbd "C-SPC") 'cabbage-complete))
-    (2 (define-key esc-map "/" 'cabbage-complete))))
+    (2 (define-key esc-map "/" 'cabbage-complete)))
+
+  
+  (when cabbage-java-use-eclim
+    (add-to-list 'load-path (concat (cabbage-vendor-library-dir 'eclim) "vendor/"))
+    (cabbage-vendor 'eclim)
+
+    (setq eclim-interactive-completion-function 'ido-completing-read)
+
+    (setq help-at-pt-display-when-idle t)
+    (setq help-at-pt-timer-delay 0.1)
+    (help-at-pt-set-timer)
+
+    (global-eclim-mode t)
+
+    (case cabbage-completion-framework
+      ('auto-complete
+       (require 'ac-emacs-eclim-source)
+       (ac-emacs-eclim-config))
+      ('company-mode
+       (require 'company-emacs-eclim)
+       (company-emacs-eclim-setup)))
+
+    ;; If we are using the snippets bundle, append the eclim
+    ;; yasnippets dir to the list of yasnippet directories
+    (if (and eclim-use-yasnippet (cabbage-bundle-active-p 'snippets))
+        (add-hook 'cabbage-initialized-hook
+                  (lambda ()
+                    (let ((dir (concat (cabbage-vendor-library-dir 'eclim) "snippets/")))
+                      (add-to-list 'yas/root-directory dir t)
+                      (yas/load-directory dir)))))))
 
 (cabbage-completion-init)
 
